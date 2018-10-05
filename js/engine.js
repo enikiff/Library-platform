@@ -73,7 +73,13 @@ Library.prototype.getRandomAuthorName = function(author){
     }
 };
 
-
+Library.prototype.getAuthors = function(authorName){
+	 var newArray = new Array();
+	 for(var i=0; i < this.bookShelf.length; i++){
+     newArray.push(this.bookShelf[i].author);
+   }
+   return newArray;
+};
 
 
 
