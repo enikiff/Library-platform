@@ -1,74 +1,67 @@
 function Library()
 {
   this.bookShelf = new Array();
-
 }
 
-Library.prototype.addBook = function(book)
-{
-      for(var i=0; i < this.bookShelf.length; i++){
-          if(this.bookShelf[i].title===book.title){
-          return false;
-          }
-      }
-this.bookShelf.push(book);
-return true;
+Library.prototype.addBook = function(book){
+    for(var i=0; i < this.bookShelf.length; i++){
+      if(this.bookShelf[i].title==book.title){
+      return false;
+        }
+    }
+    this.bookShelf.push(book);
+    return true;
 };
 
-Library.prototype.removeBookByAuthorName = function(author)
-{
+Library.prototype.removeBookByAuthorName = function(author){
       for(var i=0; i < this.bookShelf.length; i++){
-          if(this.bookShelf[i].author===author){
-          this.bookShelf.splice(i, 0);
-          return true;
+          if(this.bookShelf[i].author==author){
+            this.bookShelf.splice(i, 0);
+            return true;
           }
       }
   return false;
 };
 
-Library.prototype.removeBookByTitle = function(title)
-{
+Library.prototype.removeBookByTitle = function(title){
   for(var i=0; i < this.bookShelf.length; i++){
-        if(this.bookShelf[i].title === title){
+    if(this.bookShelf[i].title == title){
           this.bookShelf.splice(i,1);
           return true;
-        }
-      }
-
-return false;
-
+    }
+  }
+  return false;
 };
 
-Library.prototype.getRandomBook = function(book)
-{
-  for(var i=0; i < this.bookShelf.length; i++){
-      return Math.book(Math.random()*bookShelf.length);
-        }
-      }
-
-return null;
-
+Library.prototype.getRandomBook = function(){
+    if(this.bookShelf.length>0){
+      var index =Math.floor(Math.random() * this.bookShelf.length);
+        return this.bookShelf[index];
+    }else{
+      return null;
+    }
 };
 
 
+Library.prototype.getBooksByTitle = function(title){
+	var newArray = new Array();
+	for(var i=0; i < this.bookShelf.length; i++){
+		if(this.bookShelf[i].title.indexOf(title) >= 0){
+			newArray.push(this.bookShelf[i]);
+		}
+	}
+	return newArray;
+};
 
-
-
-function random_item(items)
-{
-
-return items[Math.floor(Math.random()*items.length)];
-
-}
-
-var items = [254, 45, 212, 365, 2543];
-console.log(random_item(items));
-
-
-
-
-
-
+Library.prototype.getBooksByAuthor = function(authorName){
+	var newArray = new Array();
+	for(var i=0; i < this.bookShelf.length; i++){
+		if(this.bookShelf[i].author.indexOf(authorName) >= 0){
+			newArray.push(this.bookShelf[i]);
+		}
+	}
+	return newArray;
+};
 
 
 
