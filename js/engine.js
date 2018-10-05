@@ -64,16 +64,34 @@ Library.prototype.getBooksByAuthor = function(authorName){
 };
 
 
+Library.prototype.getRandomAuthorName = function(author){
+    if(this.bookShelf.length>0){
+      var index =Math.floor(Math.random() * this.bookShelf.length);
+        return this.bookShelf[index].author;
+    }else{
+      return null;
+    }
+};
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function(e){
  window.gLibrary = new Library();
  book1 = new Book("IT", "SK", 200,"Jan 1th");
- book2 = new Book("Drama", "SK", 300,"Jan 15th");
- book3 = new Book("IT", "Garry Poter", 30,"Okt 66th");
+ book2 = new Book("Drama", "SK1", 300,"Jan 15th");
+ book3 = new Book("IT2", "Garry Poter", 30,"Okt 66th");
  book4 = new Book("Comedy", "Garry", 40,"Sep 66th");
- book5 = new Book("Comedy", "SK", 130,"March 66th");
- book6 = new Book("Comedy", "Egor", 130,"March 66th");
+ book5 = new Book("Comedy1", "SK2", 130,"March 66th");
+ book6 = new Book("Comedy2", "Egor1", 130,"March 66th");
+ book7 = new Book("Comedy3", "Egor2", 130,"March 66th");
+ book8 = new Book("Comedy4", "Egor3", 130,"March 66th");
+ book9 = new Book("Comedy5", "Egor4", 130,"March 66th");
+ book10 = new Book("Comedy6", "Egor5", 130,"March 66th");
+
+
 
 
 
@@ -83,5 +101,11 @@ document.addEventListener("DOMContentLoaded", function(e){
  gLibrary.addBook(book4);
  gLibrary.addBook(book5);
  gLibrary.addBook(book6);
+ gLibrary.addBook(book7);
+ gLibrary.addBook(book8);
+ gLibrary.addBook(book9);
+ gLibrary.addBook(book10);
+
+
 
 });
